@@ -42,14 +42,16 @@ export const Dashboard: React.FC = () => {
         ))}
       </div>
 
-      {filteredGames.map(([sport, gameList]) => (
-        <div key={sport}>
-          <h3>{sport}</h3>
-          <div className="game-list">
-            {gameList.map((game) => <GameCard key={game.id} game={game} />)}
+      <div className="all-sports">
+        {filteredGames.map(([sport, gameList]) => (
+          <div key={sport}>
+            <h3>{sport}</h3>
+            <div className="game-list">
+              {gameList.map((game) => <GameCard key={game.id} game={game} />)}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

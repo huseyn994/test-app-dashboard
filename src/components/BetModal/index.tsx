@@ -24,11 +24,18 @@ export const BetModal: React.FC<BetModalProps> = ({ game, onClose }) => {
     const newValue = event.target.value.replace(/[^0-9]/g, '');
     setAmount(newValue);
   };
+
+  const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   
   const isSubmitDisabled = !selectedTeam || !amount || Number(amount) <= 0;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal">
         <h2>Place a Bet</h2>
 
